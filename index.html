@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>España: Crisol de Culturas · Nivel C1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carbon:#1A1417;       /* forge interior */
+  --carbon-2:#241B20;
+  --oro:#E8B04B;          /* molten gold */
+  --oro-claro:#F6D78A;
+  --ember:#C1452E;        /* red-hot iron */
+  --granate:#7A1F2B;      /* deep wine */
+  --ceniza:#F2E9DC;       /* warm ash */
+  --ceniza-2:#E4D7C3;
+  --verdin:#3D8B7D;       /* patina teal (correct) */
+  --verdin-claro:#6BB3A4;
+  --line:rgba(242,233,220,.14);
+  --shadow:0 18px 50px -20px rgba(0,0,0,.65);
+  --maxw:920px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Spectral",Georgia,serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(193,69,46,.18), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(122,31,43,.22), transparent 55%),
+    var(--carbon);
+  color:var(--ceniza);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--oro);color:var(--carbon);}
+a{color:var(--oro-claro);}
+.mono{font-family:"Space Mono",monospace;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+/* ---------- PROGRESS RAIL (sticky) ---------- */
+.rail{
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,17,21,.82);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.rail-inner{max-width:var(--maxw);margin:0 auto;padding:11px 22px;display:flex;align-items:center;gap:14px;}
+.crisol-meter{position:relative;width:42px;height:42px;flex:0 0 auto;}
+.crisol-meter svg{transform:rotate(-90deg);}
+.crisol-meter .pct{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:"Space Mono",monospace;font-size:.62rem;color:var(--oro-claro);
+}
+.rail-stops{display:flex;gap:5px;flex:1;flex-wrap:wrap;}
+.stop{
+  font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.04em;
+  color:var(--ceniza-2);opacity:.5;text-decoration:none;
+  border:1px solid var(--line);border-radius:30px;padding:3px 9px;
+  transition:.2s;white-space:nowrap;
+}
+.stop:hover{opacity:1;border-color:var(--oro);}
+.stop.done{opacity:1;color:var(--carbon);background:var(--oro);border-color:var(--oro);}
+.stop b{color:var(--ember);}
+.stop.done b{color:var(--granate);}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:78px 0 54px;overflow:hidden;}
+.hero .eyebrow{
+  font-family:"Space Mono",monospace;font-size:.74rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--ember);margin:0 0 18px;
+}
+.hero h1{
+  font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2.6rem,8vw,5.1rem);
+  line-height:.96;margin:0;letter-spacing:-.02em;
+  background:linear-gradient(100deg,var(--ceniza) 0%, var(--oro-claro) 45%, var(--oro) 60%, var(--ember) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:220% auto;animation:molten 9s ease-in-out infinite;
+}
+@keyframes molten{0%,100%{background-position:0 0;}50%{background-position:100% 0;}}
+.hero h1 em{font-style:italic;font-weight:500;}
+.hero .lede{font-size:1.18rem;max-width:640px;margin:22px 0 0;color:var(--ceniza-2);}
+.hero .lede strong{color:var(--ceniza);font-weight:600;}
+.crucible-line{
+  width:120px;height:3px;margin:30px 0 26px;border-radius:3px;
+  background:linear-gradient(90deg,var(--granate),var(--ember),var(--oro));
+}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;}
+.chip{
+  font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.02em;
+  border:1px solid var(--line);border-radius:6px;padding:7px 12px;color:var(--ceniza-2);
+}
+.chip b{color:var(--oro);}
+
+/* ---------- SECTIONS / STRATA ---------- */
+.estrato{padding:60px 0 10px;border-top:1px solid var(--line);}
+.estrato-head{display:flex;align-items:flex-start;gap:20px;margin-bottom:8px;}
+.estrato-num{
+  font-family:"Fraunces",serif;font-weight:900;font-size:3.2rem;line-height:.8;
+  color:transparent;-webkit-text-stroke:1.4px var(--oro);flex:0 0 auto;
+}
+.estrato-head h2{
+  font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.5rem);
+  margin:0;line-height:1.04;letter-spacing:-.01em;
+}
+.estrato-head .era{
+  font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ember);margin:0 0 5px;
+}
+.estrato-head .mins{
+  margin-left:auto;font-family:"Space Mono",monospace;font-size:.7rem;
+  color:var(--ceniza-2);border:1px solid var(--line);border-radius:30px;
+  padding:4px 11px;white-space:nowrap;align-self:center;
+}
+.intro{font-size:1.06rem;color:var(--ceniza-2);max-width:62ch;}
+.intro strong{color:var(--ceniza);}
+
+/* ---------- CARDS ---------- */
+.card{
+  background:linear-gradient(180deg,var(--carbon-2),rgba(36,27,32,.4));
+  border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:22px 0;
+  box-shadow:var(--shadow);
+}
+.card.article{border-left:3px solid var(--oro);}
+.label{
+  font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--oro);margin:0 0 12px;display:flex;align-items:center;gap:9px;
+}
+.label .ic{width:16px;height:16px;display:inline-block;}
+.article h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.4rem;margin:.1rem 0 .7rem;}
+.article p{margin:.7rem 0;}
+.article .src{font-size:.82rem;color:var(--ceniza-2);opacity:.7;font-style:italic;margin-top:14px;}
+
+/* glossary tooltips */
+.gl{border-bottom:1px dotted var(--oro);cursor:help;position:relative;}
+.gl:hover::after{
+  content:attr(data-d);position:absolute;left:0;bottom:135%;width:240px;
+  background:var(--carbon);color:var(--ceniza);border:1px solid var(--oro);
+  border-radius:8px;padding:8px 10px;font-size:.78rem;font-family:"Spectral";
+  line-height:1.4;z-index:20;box-shadow:var(--shadow);
+}
+
+/* IT contrastive note */
+.contrast{
+  background:rgba(61,139,125,.12);border:1px solid rgba(61,139,125,.4);
+  border-radius:12px;padding:16px 18px;margin:18px 0;
+}
+.contrast .label{color:var(--verdin-claro);}
+.contrast b{color:var(--ceniza);}
+
+/* formal register focus */
+.registro{
+  background:rgba(193,69,46,.1);border:1px solid rgba(193,69,46,.42);
+  border-radius:12px;padding:18px 20px;margin:18px 0;
+}
+.registro .label{color:var(--ember);}
+.registro table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.94rem;}
+.registro td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+.registro td:first-child{color:var(--ceniza-2);width:42%;}
+.registro .reg-formal{color:var(--oro-claro);}
+
+/* video */
+.video-frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9;margin:14px 0 10px;}
+.video-frame iframe{width:100%;height:100%;border:0;display:block;}
+.video-fallback{font-size:.84rem;color:var(--ceniza-2);}
+.video-fallback a{font-weight:600;}
+.vcard{
+  display:flex;align-items:center;gap:18px;text-decoration:none;color:inherit;
+  border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0 6px;
+  background:linear-gradient(110deg,rgba(193,69,46,.16),rgba(122,31,43,.1));
+  transition:.18s;
+}
+.vcard:hover{border-color:var(--ember);transform:translateY(-2px);}
+.vplay{
+  flex:0 0 auto;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
+  background:var(--ember);box-shadow:0 6px 22px -6px var(--ember);
+}
+.vplay svg{width:20px;height:20px;fill:var(--ceniza);margin-left:3px;}
+.vtxt b{font-family:"Fraunces";font-weight:600;font-size:1.08rem;display:block;color:var(--ceniza);}
+.vtxt .vmeta{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--ember);text-transform:uppercase;margin-top:3px;}
+.vtxt .vmeta span{color:var(--ceniza-2);}
+.vembed{margin:14px 0 6px;}
+.vembed iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;display:block;background:#000;}
+.vembed .vcap{display:block;font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--ember);text-transform:uppercase;margin-top:8px;}
+
+/* ---------- SECTION EMBLEM ---------- */
+.estrato-emblem{flex:0 0 auto;width:52px;height:52px;align-self:flex-start;margin-top:2px;}
+.estrato-emblem svg{width:100%;height:100%;overflow:visible;}
+
+/* ---------- NEWSPAPER CLIPPING ---------- */
+.newspaper{
+  background:#ECE3D0;color:#241B20;border:1px solid #cdbf9f;border-radius:4px;
+  padding:28px 34px 24px;margin:26px 0;box-shadow:var(--shadow);position:relative;
+  background-image:repeating-linear-gradient(0deg,rgba(36,27,32,.022) 0 2px,transparent 2px 4px);
+}
+.np-masthead{text-align:center;}
+.np-name{font-family:"Fraunces",serif;font-weight:900;font-size:1.45rem;letter-spacing:.01em;line-height:1;}
+.np-dateline{
+  font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#6a5644;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;
+  border-top:1px solid #241B20;border-bottom:3px double #241B20;padding:5px 0;margin-top:9px;
+}
+.np-headline{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(1.55rem,4.6vw,2.25rem);line-height:1.02;text-align:center;margin:18px 0 6px;letter-spacing:-.01em;}
+.np-deck{text-align:center;font-style:italic;color:#5b4a3a;margin:0 auto 4px;font-size:1.04rem;max-width:50ch;}
+.np-byline{text-align:center;font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#9c3b2a;margin:6px 0 18px;}
+.np-figure{margin:0 0 16px;text-align:center;}
+.np-figure svg{width:100%;height:auto;max-width:540px;display:inline-block;}
+.np-figure figcaption{font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:#6a5644;margin-top:7px;}
+.np-body{column-count:2;column-gap:30px;column-rule:1px solid rgba(36,27,32,.16);font-size:.95rem;line-height:1.55;text-align:justify;hyphens:auto;}
+.np-body p{margin:0 0 .7rem;}
+.np-body > p:first-of-type::first-letter{font-family:"Fraunces",serif;font-weight:900;font-size:3.2rem;line-height:.68;float:left;padding:7px 9px 0 0;color:#9c3b2a;}
+.np-body em{font-style:italic;}
+.np-figure.col{break-inside:avoid;margin:4px 0 12px;}
+.np-figure.col svg{max-width:220px;}
+.newspaper .gl{border-bottom:1px dotted #9c3b2a;}
+.np-src{font-size:.72rem;color:#6a5644;font-style:italic;margin:8px 0 0;border-top:1px solid rgba(36,27,32,.2);padding-top:8px;}
+@media(max-width:620px){.np-body{column-count:1;}}
+
+/* ---------- FÍJATE (expresiones formales) ---------- */
+.fijate{background:rgba(232,176,75,.08);border:1px solid rgba(232,176,75,.4);border-radius:14px;padding:18px 22px;margin:20px 0;}
+.fijate .label{color:var(--oro);}
+.fijate .hint{font-size:.94rem;color:var(--ceniza-2);margin:.1rem 0 14px;}
+.fijate .hint b{color:var(--ceniza);}
+.swap{display:grid;grid-template-columns:1fr 26px 1fr;gap:9px 6px;align-items:baseline;}
+.swap .coti{text-align:right;color:var(--ceniza-2);font-size:.95rem;}
+.swap .arr{text-align:center;color:var(--ember);font-family:"Space Mono",monospace;}
+.swap .form{color:var(--oro-claro);font-size:.97rem;}
+.swap b{color:var(--ceniza);font-weight:600;}
+.swap .head{font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;border-bottom:1px solid var(--line);padding-bottom:5px;}
+.swap .head.r{color:var(--oro);}
+@media(max-width:620px){.swap{grid-template-columns:1fr;}.swap .arr{display:none;}.swap .coti{text-align:left;}.swap .head{display:none;}}
+
+/* ---------- EXERCISE ENGINE ---------- */
+.ex{
+  background:var(--carbon-2);border:1px solid var(--line);border-left:3px solid var(--ember);
+  border-radius:14px;padding:22px 24px;margin:22px 0;
+}
+.ex .q{font-size:1.04rem;margin:0 0 16px;color:var(--ceniza);}
+.ex .q .num{font-family:"Space Mono",monospace;color:var(--ember);font-size:.8rem;margin-right:8px;}
+.ex .reto{font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--oro);border:1px solid var(--line);border-radius:30px;padding:3px 9px;float:right;}
+
+/* MCQ + match options */
+.opt{
+  display:block;width:100%;text-align:left;cursor:pointer;
+  background:transparent;color:var(--ceniza);border:1px solid var(--line);
+  border-radius:10px;padding:12px 15px;margin:8px 0;font-family:"Spectral";font-size:.98rem;
+  transition:.16s;
+}
+.opt:hover{border-color:var(--oro);}
+.opt.correct{border-color:var(--verdin);background:rgba(61,139,125,.16);}
+.opt.wrong{border-color:var(--ember);background:rgba(193,69,46,.14);opacity:.85;}
+.opt .tick{float:right;font-weight:700;}
+.opt.correct .tick{color:var(--verdin-claro);}
+.opt.wrong .tick{color:var(--ember);}
+
+/* cloze */
+.cloze-text{font-size:1.04rem;line-height:2.3;}
+.cloze-text select{
+  font-family:"Space Mono",monospace;font-size:.9rem;background:var(--carbon);
+  color:var(--oro-claro);border:1px solid var(--oro);border-radius:7px;padding:4px 6px;margin:0 2px;
+}
+.cloze-text select.ok{border-color:var(--verdin);color:var(--verdin-claro);}
+.cloze-text select.no{border-color:var(--ember);color:var(--ember);}
+.cloze-text input.gap{
+  font-family:"Space Mono",monospace;font-size:.88rem;width:130px;background:var(--carbon);
+  color:var(--oro-claro);border:none;border-bottom:2px solid var(--oro);padding:3px 5px;text-align:center;
+}
+.cloze-text input.gap.ok{border-color:var(--verdin);color:var(--verdin-claro);}
+.cloze-text input.gap.no{border-color:var(--ember);color:var(--ember);}
+
+/* match */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.match-col{display:flex;flex-direction:column;gap:8px;}
+.match-item{
+  border:1px solid var(--line);border-radius:10px;padding:11px 13px;cursor:pointer;
+  font-size:.95rem;transition:.16s;background:transparent;color:var(--ceniza);text-align:left;
+}
+.match-item:hover{border-color:var(--oro);}
+.match-item.sel{border-color:var(--oro);background:rgba(232,176,75,.12);}
+.match-item.linked{border-color:var(--verdin);background:rgba(61,139,125,.13);}
+.match-item.linked .tag{color:var(--verdin-claro);font-family:"Space Mono";font-size:.7rem;float:right;}
+.match-item.miss{border-color:var(--ember);}
+
+.btn{
+  font-family:"Space Mono",monospace;font-size:.82rem;letter-spacing:.03em;cursor:pointer;
+  background:var(--oro);color:var(--carbon);border:none;border-radius:9px;padding:10px 18px;
+  font-weight:700;transition:.16s;margin-top:14px;
+}
+.btn:hover{background:var(--oro-claro);}
+.btn.ghost{background:transparent;color:var(--oro);border:1px solid var(--oro);}
+.btn.ghost:hover{background:rgba(232,176,75,.12);}
+.fb{margin-top:14px;font-size:.94rem;border-radius:9px;padding:0;max-height:0;overflow:hidden;transition:.3s;}
+.fb.show{padding:13px 16px;max-height:600px;}
+.fb.good{background:rgba(61,139,125,.14);border:1px solid var(--verdin);}
+.fb.bad{background:rgba(193,69,46,.12);border:1px solid var(--ember);}
+.fb b{color:var(--oro-claro);}
+
+/* prompt / production */
+.prompt-box textarea{
+  width:100%;min-height:120px;background:var(--carbon);color:var(--ceniza);
+  border:1px solid var(--line);border-radius:10px;padding:13px;font-family:"Spectral";
+  font-size:.98rem;resize:vertical;line-height:1.6;
+}
+.prompt-box textarea:focus{outline:none;border-color:var(--oro);}
+.key{margin-top:14px;border:1px dashed var(--oro);border-radius:10px;padding:0 16px;max-height:0;overflow:hidden;transition:.35s;}
+.key.show{padding:16px;max-height:1200px;}
+.key h4{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--oro);margin:0 0 9px;}
+.key .model{font-style:italic;color:var(--ceniza-2);}
+.checklist{list-style:none;padding:0;margin:10px 0 0;}
+.checklist li{padding:5px 0 5px 26px;position:relative;font-size:.92rem;}
+.checklist li::before{content:"◆";position:absolute;left:0;color:var(--ember);}
+
+/* footer / score */
+.scorebar{
+  text-align:center;padding:54px 0 80px;border-top:1px solid var(--line);margin-top:46px;
+}
+.scorebar h2{font-family:"Fraunces",serif;font-weight:600;font-size:2rem;margin:0 0 10px;}
+.score-big{font-family:"Fraunces",serif;font-weight:900;font-size:4rem;
+  background:linear-gradient(100deg,var(--oro),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.score-sub{font-family:"Space Mono",monospace;color:var(--ceniza-2);font-size:.85rem;}
+.foot-note{font-size:.8rem;color:var(--ceniza-2);opacity:.6;margin-top:30px;}
+
+@media(max-width:620px){
+  .match-grid{grid-template-columns:1fr;}
+  .estrato-head{flex-wrap:wrap;gap:12px;}
+  .estrato-head .mins{margin-left:0;}
+  .estrato-num{font-size:2.4rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero h1{animation:none;}*{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PROGRESS RAIL ============ -->
+<div class="rail">
+  <div class="rail-inner">
+    <div class="crisol-meter" title="Crisol fundido">
+      <svg width="42" height="42" viewBox="0 0 42 42">
+        <circle cx="21" cy="21" r="17" fill="none" stroke="rgba(242,233,220,.14)" stroke-width="4"/>
+        <circle id="meterArc" cx="21" cy="21" r="17" fill="none" stroke="var(--oro)" stroke-width="4"
+          stroke-linecap="round" stroke-dasharray="106.8" stroke-dashoffset="106.8"/>
+      </svg>
+      <span class="pct" id="meterPct">0%</span>
+    </div>
+    <nav class="rail-stops" id="railStops"></nav>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Español C1 · Inmersión cultural · 2 horas</p>
+    <h1>España:<br><em>crisol</em> de culturas</h1>
+    <div class="crucible-line"></div>
+    <p class="lede">Un <strong>crisol</strong> es la parte del horno donde los metales se funden y se mezclan. España es ese horno: íberos, romanos, árabes, judíos, cristianos y el Nuevo Mundo se fundieron aquí durante tres milenios. Antes de instalarte en Madrid, vas a recorrer los seis estratos de esa aleación leyéndolos en clave de prensa &mdash; y a quedarte con las palabras y los giros del español culto que oirás cada día.</p>
+    <div class="meta-row">
+      <span class="chip">Nivel <b>B2 → C1</b></span>
+      <span class="chip">Foco <b>registro formal</b></span>
+      <span class="chip">Contraste <b>IT ↔ ES</b></span>
+      <span class="chip"><b>6</b> estratos · léxico formal</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="lesson">
+<!-- MODULES INJECTED BELOW -->
+</main>
+
+<!-- ============ SCORE ============ -->
+<section class="scorebar wrap">
+  <p class="label" style="justify-content:center;color:var(--ember)">Crisol fundido</p>
+  <div class="score-big"><span id="finalScore">0</span> / <span id="finalTotal">0</span></div>
+  <p class="score-sub" id="scoreMsg">El horno aún está frío. Empieza por el Estrato I.</p>
+  <p class="foot-note">Las preguntas abiertas se valoran con el profesor; pulsa <b>«Ver clave del profesor»</b> tras intentar tu respuesta.<br>Diseñado para clase presencial o videollamada · Tri-Language Teaching Academy</p>
+</section>
+
+<script>
+/* =================================================================
+   MOTOR DE EJERCICIOS  ·  tipos: mcq · cloze · match · prompt
+   Data-driven: cada estrato registra sus retos; el motor los pinta.
+   ================================================================= */
+const STATE = { answered:{}, total:0, correct:0 };
+
+/* ---- util ---- */
+const $=(s,r=document)=>r.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+function norm(s){return (s||'').toLowerCase().trim().replace(/[.,;:!¡¿?"']/g,'').replace(/\s+/g,' ');}
+
+/* ---- scoring ---- */
+function register(id, isCorrect){
+  if(STATE.answered[id]) return;
+  STATE.answered[id]=true;
+  STATE.total++;
+  if(isCorrect) STATE.correct++;
+  updateScore();
+}
+function updateScore(){
+  $('#finalScore').textContent=STATE.correct;
+  $('#finalTotal').textContent=STATE.total;
+  // progress = estratos cuyos retos están todos contestados
+  const done=ESTRATOS.filter(e=>e.exercises.every(x=>STATE.answered[x._id])).length;
+  const pct=Math.round(done/ESTRATOS.length*100);
+  const circ=106.8;
+  $('#meterArc').style.strokeDashoffset=circ-(circ*pct/100);
+  $('#meterPct').textContent=pct+'%';
+  ESTRATOS.forEach(e=>{
+    const allDone=e.exercises.length && e.exercises.every(x=>STATE.answered[x._id]);
+    const stop=document.getElementById('stop-'+e.id);
+    if(stop) stop.classList.toggle('done',allDone);
+  });
+  const msg=$('#scoreMsg');
+  if(STATE.total===0) return;
+  const r=STATE.correct/STATE.total;
+  if(pct===100) msg.textContent = r>=.8? '¡Aleación de oro! Dominas el registro formal. Listo para Madrid.' : r>=.6? 'Crisol fundido. Revisa con tu profesor los retos que se resistieron.' : 'Recorrido completo. Vale la pena repasar subjuntivo y conectores.';
+  else msg.textContent = `Vas fundiendo el crisol… ${done} de ${ESTRATOS.length} estratos completos.`;
+}
+
+/* =========================  RENDERERS  ========================= */
+function renderMCQ(x){
+  const wrap=el('div','ex');
+  wrap.innerHTML=`<span class="reto">Reto · opción múltiple</span><p class="q"><span class="num">${x.num}</span>${x.q}</p>`;
+  const opts=el('div');
+  x.options.forEach((o,i)=>{
+    const b=el('button','opt',o+'<span class="tick"></span>');
+    b.onclick=()=>{
+      if(STATE.answered[x._id]) return;
+      const ok=i===x.answer;
+      Array.from(opts.children).forEach((c,j)=>{
+        if(j===x.answer){c.classList.add('correct');c.querySelector('.tick').textContent='✓';}
+        else if(j===i&&!ok){c.classList.add('wrong');c.querySelector('.tick').textContent='✕';}
+      });
+      const fb=wrap.querySelector('.fb');
+      fb.className='fb show '+(ok?'good':'bad');
+      fb.innerHTML=(ok?'<b>Correcto.</b> ':'<b>No exactamente.</b> ')+x.fb;
+      register(x._id,ok);
+    };
+    opts.appendChild(b);
+  });
+  wrap.appendChild(opts);
+  wrap.appendChild(el('div','fb'));
+  return wrap;
+}
+
+function renderCloze(x){
+  const wrap=el('div','ex');
+  wrap.innerHTML=`<span class="reto">Reto · ${x.mode==='type'?'completa':'elige la forma'}</span><p class="q"><span class="num">${x.num}</span>${x.q}</p>`;
+  const p=el('p','cloze-text');
+  let html=x.text;
+  x.gaps.forEach((g,i)=>{
+    if(x.mode==='type'){
+      html=html.replace('___'+i+'___',`<input class="gap" data-i="${i}" placeholder="?">`);
+    }else{
+      const shuffled=[...g.options].map((o,oi)=>`<option value="${oi}">${o}</option>`).join('');
+      html=html.replace('___'+i+'___',`<select data-i="${i}"><option value="-1">—</option>${shuffled}</select>`);
+    }
+  });
+  p.innerHTML=html;
+  wrap.appendChild(p);
+  const btn=el('button','btn','Comprobar');
+  btn.onclick=()=>{
+    if(STATE.answered[x._id]) return;
+    let all=true;
+    x.gaps.forEach((g,i)=>{
+      const field=p.querySelector('[data-i="'+i+'"]');
+      let ok;
+      if(x.mode==='type'){ ok=g.accept.some(a=>norm(a)===norm(field.value)); }
+      else { ok=parseInt(field.value)===g.answer; }
+      field.classList.toggle('ok',ok);field.classList.toggle('no',!ok);
+      if(!ok) all=false;
+      if(x.mode==='select') field.value=g.answer; // reveal correct
+    });
+    const fb=wrap.querySelector('.fb');
+    fb.className='fb show '+(all?'good':'bad');
+    fb.innerHTML=(all?'<b>Impecable.</b> ':'<b>Casi.</b> Se han marcado las formas correctas. ')+x.fb;
+    register(x._id,all);
+  };
+  wrap.appendChild(btn);
+  wrap.appendChild(el('div','fb'));
+  return wrap;
+}
+
+function renderMatch(x){
+  const wrap=el('div','ex');
+  wrap.innerHTML=`<span class="reto">Reto · relaciona</span><p class="q"><span class="num">${x.num}</span>${x.q}</p>`;
+  const grid=el('div','match-grid');
+  const colA=el('div','match-col'), colB=el('div','match-col');
+  const right=x.pairs.map((p,i)=>({t:p.b,i})).sort(()=>Math.random()-.5);
+  let sel=null; const links={};
+  x.pairs.forEach((p,i)=>{
+    const a=el('button','match-item',p.a);a.dataset.i=i;
+    a.onclick=()=>{ if(STATE.answered[x._id])return; colA.querySelectorAll('.match-item').forEach(n=>n.classList.remove('sel')); a.classList.add('sel'); sel={node:a,i}; };
+    colA.appendChild(a);
+  });
+  right.forEach(r=>{
+    const b=el('button','match-item',r.t);b.dataset.i=r.i;
+    b.onclick=()=>{
+      if(STATE.answered[x._id]||!sel)return;
+      links[sel.i]=r.i;
+      sel.node.classList.remove('sel');sel.node.classList.add('linked');
+      sel.node.querySelector('.tag')?.remove();
+      const tag=el('span','tag','→ '+r.t.slice(0,16)+(r.t.length>16?'…':''));sel.node.appendChild(tag);
+      b.classList.add('linked');
+      sel=null;
+    };
+    colB.appendChild(b);
+  });
+  grid.appendChild(colA);grid.appendChild(colB);wrap.appendChild(grid);
+  const btn=el('button','btn','Comprobar');
+  btn.onclick=()=>{
+    if(STATE.answered[x._id])return;
+    let ok=0;
+    x.pairs.forEach((p,i)=>{ if(links[i]===i) ok++; else colA.children[i].classList.add('miss'); });
+    const all=ok===x.pairs.length;
+    const fb=wrap.querySelector('.fb');
+    fb.className='fb show '+(all?'good':'bad');
+    fb.innerHTML=(all?'<b>Todo enlazado.</b> ':`<b>${ok}/${x.pairs.length} correctas.</b> `)+x.fb;
+    register(x._id,all);
+  };
+  wrap.appendChild(btn);wrap.appendChild(el('div','fb'));
+  return wrap;
+}
+
+function renderPrompt(x){
+  const wrap=el('div','ex prompt-box');
+  wrap.innerHTML=`<span class="reto">Reto · producción</span><p class="q"><span class="num">${x.num}</span>${x.q}</p>`;
+  if(x.brief) wrap.appendChild(el('p','intro',x.brief));
+  const ta=el('textarea');ta.placeholder=x.placeholder||'Escribe aquí tu respuesta…';wrap.appendChild(ta);
+  const btn=el('button','btn ghost','Ver clave del profesor');
+  const key=el('div','key');
+  key.innerHTML=`<h4>Clave del profesor</h4>${x.model?`<p class="model">${x.model}</p>`:''}${x.checklist?'<ul class="checklist">'+x.checklist.map(c=>'<li>'+c+'</li>').join('')+'</ul>':''}`;
+  btn.onclick=()=>{ key.classList.toggle('show'); btn.textContent=key.classList.contains('show')?'Ocultar clave':'Ver clave del profesor'; register(x._id,true); };
+  wrap.appendChild(btn);wrap.appendChild(key);
+  return wrap;
+}
+
+const RENDERERS={mcq:renderMCQ,cloze:renderCloze,match:renderMatch,prompt:renderPrompt};
+
+/* =========================  BUILD PAGE  ========================= */
+function buildLesson(){
+  const main=$('#lesson');
+  const rail=$('#railStops');
+  ESTRATOS.forEach((e,idx)=>{
+    e.exercises.forEach((x,j)=>x._id=e.id+'-'+j);
+    // rail stop
+    const stop=el('a','stop',`<b>${String(idx+1).padStart(2,'0')}</b> ${e.short}`);
+    stop.id='stop-'+e.id;stop.href='#'+e.id;rail.appendChild(stop);
+    // section
+    const sec=el('section','estrato');sec.id=e.id;
+    sec.appendChild(htmlFromString(e.html));
+    e.exercises.forEach(x=>sec.appendChild(RENDERERS[x.type](x)));
+    main.appendChild(sec);
+  });
+  updateScore();
+}
+function htmlFromString(s){const t=el('div');t.innerHTML=s;return t;}
+</script>
+
+<script>
+/* =================================================================
+   CONTENIDO  ·  los seis estratos del crisol
+   (inyectado por el segundo bloque de script)
+   ================================================================= */
+const ESTRATOS=[];
+</script>
+<script>
+/* ====================================================================
+   CONTENIDO v2 · ESPAÑA, CRISOL DE CULTURAS · español formal (C1)
+   Enfoque: NOTAR e IMITAR el español culto (verbos, expresiones,
+   vocabulario), no memorizar reglas. Cada estrato lleva su símbolo,
+   una imagen y el artículo maquetado como recorte de prensa.
+   ==================================================================== */
+
+/* ---------- vídeo ----------------------------------------------------
+   Para incrustar el reproductor real: pon el ID del vídeo (los 11
+   caracteres tras "watch?v=") en el campo id. Si id queda vacío (''),
+   la tarjeta abre una búsqueda dirigida al documental indicado.
+   Ej.:  youtube.com/watch?v=dQw4w9WgXcQ  ->  id:'dQw4w9WgXcQ'
+   ------------------------------------------------------------------- */
+function vcard(query,title,mins,id){
+  if(id){
+    return '<div class="vembed"><iframe src="https://www.youtube.com/embed/'+id
+      +'" title="'+title+'" frameborder="0" loading="lazy" '
+      +'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+      +'allowfullscreen></iframe><span class="vcap">'+title+' · ~'+mins+' min</span></div>';
+  }
+  const url='https://www.youtube.com/results?search_query='+encodeURIComponent(query);
+  return '<a class="vcard" href="'+url+'" target="_blank" rel="noopener">'
+    +'<span class="vplay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>'
+    +'<span class="vtxt"><b>'+title+'</b>'
+    +'<span class="vmeta">Documental · <span>~'+mins+' min · buscar «'+title+'»</span></span></span></a>';
+}
+
+/* =================== EMBLEMAS (oro sobre fondo oscuro) =================== */
+const G='var(--oro)', E='var(--ember)';
+function embCrisol(){return `<svg viewBox="0 0 60 60" fill="none" stroke="${G}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M16 30 h28 l-4 16 a6 6 0 0 1-6 5 H26 a6 6 0 0 1-6-5 z"/>
+<path d="M16 30 q14 -6 28 0"/>
+<path d="M30 30 v-7" stroke="${E}"/><path d="M24 28 q6 -10 0 -16" stroke="${E}"/><path d="M36 28 q-6 -10 0 -16" stroke="${E}"/>
+<circle cx="48" cy="44" r="2.5" fill="${E}" stroke="none"/></svg>`;}
+function embAcueducto(){return `<svg viewBox="0 0 60 60" fill="none" stroke="${G}" stroke-width="2.2" stroke-linecap="round">
+<path d="M8 48 V20 M22 48 V20 M38 48 V20 M52 48 V20"/>
+<path d="M8 20 h44"/><path d="M6 14 h48"/>
+<path d="M8 48 q7 -12 14 0 M22 48 q8 -12 16 0 M38 48 q7 -12 14 0"/></svg>`;}
+function embArco(){return `<svg viewBox="0 0 60 60" fill="none" stroke="${G}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 52 V30 a16 16 0 0 1 32 0 V52"/>
+<path d="M14 30 a16 16 0 0 0 32 0" stroke="${E}"/>
+<path d="M22 52 V34 a8 8 0 0 1 16 0 V52"/></svg>`;}
+function embLibro(){return `<svg viewBox="0 0 60 60" fill="none" stroke="${G}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 16 C24 12 14 12 10 14 V46 C14 44 24 44 30 48 C36 44 46 44 50 46 V14 C46 12 36 12 30 16 Z"/>
+<path d="M30 16 V48"/><path d="M16 24 h8 M16 30 h8 M36 24 h8 M36 30 h8" stroke="${E}"/></svg>`;}
+function embBarco(){return `<svg viewBox="0 0 60 60" fill="none" stroke="${G}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 42 h36 l-5 8 H17 z"/><path d="M30 42 V12"/>
+<path d="M30 14 h13 l-4 7 4 7 H30 z" stroke="${E}"/>
+<path d="M8 46 q6 4 11 0 q6 -4 11 0 q6 4 11 0 q6 -4 11 0"/></svg>`;}
+function embOso(){return `<svg viewBox="0 0 60 60" fill="none" stroke="${G}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 18 q10 0 12 12 q2 12 -6 18" stroke="${E}"/>
+<circle cx="44" cy="20" r="2.4" fill="${E}" stroke="none"/><circle cx="50" cy="26" r="2.4" fill="${E}" stroke="none"/><circle cx="48" cy="34" r="2.4" fill="${E}" stroke="none"/>
+<path d="M12 50 V34 a9 9 0 0 1 9-9 h3"/>
+<circle cx="20" cy="20" r="6"/><circle cx="15" cy="14" r="2.6"/><circle cx="25" cy="14" r="2.6"/>
+<path d="M21 25 q6 2 13 -3"/></svg>`;}
+
+/* =================== FIGURAS (tinta sobre papel) =================== */
+const INK='#241B20', RED='#9c3b2a', GLD='#9c7b2e', SEA='#4a6b66';
+
+/* --- MAPA: la Península prerromana + el trazo hacia Madrid --- */
+function figMapa(){return `<svg viewBox="0 0 470 360" fill="none" font-family="Space Mono, monospace">
+<g stroke="${SEA}" stroke-width="1" opacity=".45">
+<path d="M360 150 q10 4 0 8 M375 158 q10 4 0 8 M360 250 q10 4 0 8 M250 320 q10 4 0 8 M40 200 q10 4 0 8 M40 150 q10 4 0 8"/>
+</g>
+<path d="M62 96 L110 84 L172 80 L236 82 L292 90 L330 98 L344 140 L330 182 L304 216 L270 240 L236 258 L202 268 L150 258 L120 236 L100 206 L88 170 L82 134 L78 112 Z"
+ fill="#e3d5b7" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="78" y="120" fill="${INK}" font-size="11" font-weight="700">CELTAS</text>
+<text x="262" y="200" fill="${INK}" font-size="11" font-weight="700">ÍBEROS</text>
+<text x="150" y="100" fill="${INK}" font-size="10" font-weight="700">VASCOS</text>
+<text x="150" y="112" fill="${SEA}" font-size="8">euskera</text>
+<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="${RED}"/></marker></defs>
+<g stroke="${RED}" stroke-width="1.8" marker-end="url(#ah)">
+<path d="M392 250 L292 238"/><path d="M392 158 L350 158"/><path d="M250 330 L214 270"/></g>
+<text x="396" y="252" fill="${RED}" font-size="10" font-weight="700">FENICIOS</text>
+<text x="354" y="150" fill="${RED}" font-size="10" font-weight="700">GRIEGOS</text>
+<text x="176" y="345" fill="${RED}" font-size="10" font-weight="700">CARTAGINESES</text>
+<g transform="translate(40,300)">
+<rect x="-6" y="-16" width="252" height="46" rx="5" fill="#f1e7d0" stroke="${INK}" stroke-width="1"/>
+<path d="M4 4 l8 -8 m0 0 l4 4 l-8 8 z" stroke="${GLD}" stroke-width="2" fill="none"/>
+<text x="22" y="0" fill="${INK}" font-size="9" font-weight="700">BUSCABAN: metales</text>
+<text x="22" y="12" fill="${GLD}" font-size="8">oro · plata · cobre · estaño</text>
+<text x="22" y="24" fill="${SEA}" font-size="8">y salazones de pescado</text>
+</g>
+<path d="M455 60 Q330 40 214 156" stroke="${INK}" stroke-width="1.6" stroke-dasharray="4 5" fill="none"/>
+<text x="392" y="52" fill="${INK}" font-size="9" font-weight="700">desde Italia &#9992;</text>
+<g transform="translate(208,150)">
+<path d="M0 8 C-7 -2 7 -2 0 8 Z M0 -4 a5 5 0 1 0 .1 0" fill="${RED}" stroke="${INK}" stroke-width="1"/>
+<text x="6" y="20" fill="${INK}" font-size="11" font-weight="900">MADRID</text></g>
+</svg>`;}
+
+/* --- ACUEDUCTO de Segovia --- */
+function figAcueducto(){return `<svg viewBox="0 0 460 220" fill="none">
+<rect x="0" y="170" width="460" height="50" fill="#d8c9a6"/>
+<g stroke="${INK}" stroke-width="2.4">
+${Array.from({length:9}).map((_,i)=>{const x=20+i*52;return `<rect x="${x}" y="40" width="22" height="130" fill="#e3d5b7"/>`;}).join('')}
+${Array.from({length:8}).map((_,i)=>{const x=46+i*52;return `<path d="M${x} 86 a26 26 0 0 1 52 0" fill="none"/>`;}).join('')}
+${Array.from({length:8}).map((_,i)=>{const x=46+i*52;return `<path d="M${x} 150 a26 26 0 0 1 52 0" fill="none"/>`;}).join('')}
+<line x1="6" y1="40" x2="454" y2="40"/><line x1="6" y1="30" x2="454" y2="30"/>
+</g>
+<g stroke="${RED}" stroke-width="1" opacity=".6">${Array.from({length:9}).map((_,i)=>`<line x1="${28+i*52}" y1="46" x2="${28+i*52}" y2="164"/>`).join('')}</g>
+</svg>`;}
+
+/* --- ARCO de la Alhambra + fuente --- */
+function figAlhambra(){return `<svg viewBox="0 0 460 260" fill="none">
+<rect x="40" y="0" width="380" height="210" fill="#e3d5b7" stroke="${INK}" stroke-width="2"/>
+<path d="M150 210 V120 a80 80 0 0 1 160 0 V210" fill="#f1e7d0" stroke="${INK}" stroke-width="2.6"/>
+<path d="M150 120 a80 80 0 0 0 160 0" fill="#f1e7d0" stroke="${INK}" stroke-width="2.6"/>
+<g stroke="${RED}" stroke-width="1.6" fill="none">${Array.from({length:9}).map((_,i)=>`<path d="M${158+i*18} 120 a9 9 0 0 1 18 0"/>`).join('')}</g>
+<rect x="146" y="120" width="8" height="90" fill="${INK}"/><rect x="306" y="120" width="8" height="90" fill="${INK}"/>
+<g stroke="${GLD}" stroke-width="1.4">${Array.from({length:4}).map((_,i)=>`<line x1="70" y1="${50+i*30}" x2="120" y2="${50+i*30}"/><line x1="340" y1="${50+i*30}" x2="390" y2="${50+i*30}"/>`).join('')}
+${Array.from({length:3}).map((_,i)=>`<line x1="${78+i*16}" y1="46" x2="${78+i*16}" y2="166"/><line x1="${348+i*16}" y1="46" x2="${348+i*16}" y2="166"/>`).join('')}</g>
+<g transform="translate(230,230)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="#cfe0db" stroke="${SEA}" stroke-width="1.6"/>
+<rect x="-6" y="-22" width="12" height="22" fill="${INK}"/><circle cx="0" cy="-26" r="7" fill="#f1e7d0" stroke="${INK}" stroke-width="1.6"/></g>
+<text x="230" y="206" text-anchor="middle" fill="${RED}" font-family="Space Mono, monospace" font-size="9" font-weight="700">LA ALHAMBRA · GRANADA</text>
+</svg>`;}
+
+/* --- CARABELA cruzando el Atlántico con productos --- */
+function figCaravela(){return `<svg viewBox="0 0 460 240" fill="none" font-family="Space Mono, monospace">
+<g stroke="${SEA}" stroke-width="1.6" fill="none">${Array.from({length:4}).map((_,i)=>`<path d="M0 ${150+i*18} q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>`).join('')}</g>
+<path d="M40 70 Q230 30 420 70" stroke="${INK}" stroke-width="1.4" stroke-dasharray="4 5" fill="none"/>
+<text x="40" y="60" fill="${INK}" font-size="9" font-weight="700">AMÉRICA</text>
+<text x="372" y="60" fill="${INK}" font-size="9" font-weight="700">SEVILLA</text>
+<g transform="translate(200,96)">
+<path d="M-44 40 h88 l-12 22 H-32 z" fill="#e3d5b7" stroke="${INK}" stroke-width="2.4"/>
+<path d="M0 40 V-34" stroke="${INK}" stroke-width="2.4"/>
+<path d="M2 -30 h30 l-7 12 7 12 H2 z" fill="#f1e7d0" stroke="${INK}" stroke-width="2"/>
+<path d="M-2 -10 h-26 l5 10 -5 10 h26 z" fill="#f1e7d0" stroke="${RED}" stroke-width="1.8"/>
+</g>
+<g font-size="8" font-weight="700" fill="${INK}">
+<rect x="60" y="190" width="64" height="26" rx="3" fill="#f1e7d0" stroke="${INK}" stroke-width="1.4"/><text x="92" y="206" text-anchor="middle">patata</text>
+<rect x="134" y="190" width="64" height="26" rx="3" fill="#f1e7d0" stroke="${INK}" stroke-width="1.4"/><text x="166" y="206" text-anchor="middle">maíz</text>
+<rect x="208" y="190" width="64" height="26" rx="3" fill="#f1e7d0" stroke="${INK}" stroke-width="1.4"/><text x="240" y="206" text-anchor="middle">cacao</text>
+<rect x="282" y="190" width="64" height="26" rx="3" fill="#f1e7d0" stroke="${INK}" stroke-width="1.4"/><text x="314" y="206" text-anchor="middle">tomate</text>
+</g>
+</svg>`;}
+
+/* --- TRES SÍMBOLOS sobre el atril de traductores --- */
+function figToledo(){return `<svg viewBox="0 0 460 220" fill="none" font-family="Space Mono, monospace">
+<path d="M60 170 C140 140 220 140 230 150 C240 140 320 140 400 170 L400 196 C320 168 240 168 230 178 C220 168 140 168 60 196 Z" fill="#e3d5b7" stroke="${INK}" stroke-width="2.2"/>
+<path d="M230 150 V178" stroke="${INK}" stroke-width="2.2"/>
+<g stroke="${SEA}" stroke-width="1">${Array.from({length:5}).map((_,i)=>`<path d="M90 ${158+i*6} q60 -8 130 -2"/><path d="M240 ${156+i*6} q60 -6 130 2"/>`).join('')}</g>
+<g transform="translate(130,70)"><path d="M0 -22 V22 M-16 -6 H16" stroke="${RED}" stroke-width="3" stroke-linecap="round"/></g>
+<g transform="translate(230,70)"><path d="M14 0 a16 16 0 1 1 -8 -14 a12 12 0 1 0 8 14 Z" fill="none" stroke="${GLD}" stroke-width="3"/></g>
+<g transform="translate(330,70)" stroke="${SEA}" stroke-width="2.4" fill="none"><path d="M0 -18 L8 6 L-12 -8 H16 L-4 6 Z"/></g>
+<text x="230" y="120" text-anchor="middle" fill="${INK}" font-size="9" font-weight="700">ESCUELA DE TRADUCTORES · TOLEDO</text>
+<text x="230" y="134" text-anchor="middle" fill="${SEA}" font-size="8">latín · griego · árabe · hebreo</text>
+</svg>`;}
+
+/* --- OSO Y MADROÑO + Puerta de Alcalá --- */
+function figMadrid(){return `<svg viewBox="0 0 460 230" fill="none" font-family="Space Mono, monospace">
+<g stroke="${INK}" stroke-width="2.2" fill="#e3d5b7">
+<rect x="120" y="60" width="220" height="120"/>
+<path d="M150 180 V120 a26 26 0 0 1 52 0 V180" fill="#f1e7d0"/>
+<path d="M205 180 V110 a25 25 0 0 1 50 0 V180" fill="#f1e7d0"/>
+<path d="M258 180 V120 a26 26 0 0 1 52 0 V180" fill="#f1e7d0"/>
+<rect x="112" y="44" width="236" height="18"/></g>
+<g transform="translate(372,96)">
+<path d="M0 60 V20 a18 18 0 0 1 18 -18 h6" stroke="${INK}" stroke-width="2.4" fill="none"/>
+<circle cx="-2" cy="14" r="9" fill="none" stroke="${INK}" stroke-width="2.4"/>
+<path d="M30 0 q14 0 16 16 q2 18 -10 24" stroke="${GLD}" stroke-width="2.4" fill="none"/>
+<circle cx="34" cy="6" r="3" fill="${RED}"/><circle cx="42" cy="14" r="3" fill="${RED}"/><circle cx="40" cy="26" r="3" fill="${RED}"/></g>
+<text x="230" y="206" text-anchor="middle" fill="${RED}" font-size="9" font-weight="700">PUERTA DE ALCALÁ · EL OSO Y EL MADROÑO</text>
+</svg>`;}
+
+/* =================== util de maquetación =================== */
+function periodico(name, dateline, edition, headline, deck, byline, figureHTML, bodyHTML, source){
+  return `<article class="newspaper">
+   <div class="np-masthead"><div class="np-name">${name}</div>
+     <div class="np-dateline"><span>${dateline}</span><span>${edition}</span><span>Sección · Cultura</span></div></div>
+   <h3 class="np-headline">${headline}</h3>
+   <p class="np-deck">${deck}</p>
+   <p class="np-byline">${byline}</p>
+   ${figureHTML}
+   <div class="np-body">${bodyHTML}</div>
+   <p class="np-src">${source}</p>
+  </article>`;
+}
+function swap(rows){
+  return `<div class="swap"><div class="head">Cotidiano</div><div></div><div class="head r">Español culto (lo que oirás)</div>`
+    + rows.map(r=>`<div class="coti">${r[0]}</div><div class="arr">&rarr;</div><div class="form">${r[1]}</div>`).join('')
+    + `</div>`;
+}
+
+/* =================== ESTRATOS =================== */
+ESTRATOS.push(
+
+/* ============================ ESTRATO I ============================ */
+{
+  id:'origenes', short:'Orígenes',
+  html:
+  `<div class="estrato-head">
+     <span class="estrato-emblem">${embCrisol()}</span>
+     <span class="estrato-num">I</span>
+     <div><p class="era">Primer milenio a. C. · Sustrato prerromano</p>
+     <h2>El primer fuego del crisol</h2></div>
+     <span class="mins">15 min</span></div>
+   <p class="intro">Antes de que existiera nada parecido a &laquo;España&raquo;, la Península ya era un cruce de rutas marítimas. Cada pueblo que arribó dejó un sedimento &mdash; y muchos de esos sedimentos siguen vivos en las palabras que usarás cada día. El mapa marca quiénes llegaron, qué venían buscando&hellip; y dónde acabarás tú.</p>`
+   + periodico(
+     'LA GACETA DEL CRISOL', 'Edición histórica', 'N.º I',
+     'Los pueblos que encendieron el horno',
+     'Fenicios, griegos y cartagineses llegan a las costas peninsulares en busca de metales y dejan, sin pretenderlo, las primeras palabras.',
+     'Crónica de la Antigüedad',
+     `<figure class="np-figure">${figMapa()}<figcaption>La Península y sus visitantes · lo que cada pueblo venía a buscar</figcaption></figure>`,
+     `<p>En el primer milenio antes de Cristo, <span class="gl" data-d="Pueblos comerciantes del Mediterráneo oriental (actual Líbano).">fenicios</span>, griegos y cartagineses arribaron a las costas peninsulares. Sus intenciones eran estrictamente económicas: venían a por metales &mdash;cobre, plata, estaño, oro&mdash; y productos como las <span class="gl" data-d="Pescado conservado en sal.">salazones</span>. A cambio, introdujeron el cultivo del olivo, la moneda y, sobre todo, el alfabeto.</p>
+      <p>En el interior y el norte habitaban íberos y celtas, cuyas lenguas acabaron por desaparecer. Con todo, su rastro no se borró del todo. Del <span class="gl" data-d="Lengua vasca, sin parentesco con las lenguas romances.">euskera</span> nos quedan voces como <em>izquierda</em> o <em>cencerro</em>; de los celtas, <em>perro</em>, <em>camino</em>, <em>camisa</em> y <em>cerveza</em>; del íbero, <em>sapo</em> o <em>manteca</em>; y de los fenicios, palabras tan cotidianas como <em>mapa</em> o <em>saco</em>. Hasta el nombre de <em>Barcelona</em> se atribuye al cartaginés.</p>
+      <p>Conviene quedarse con una idea de fondo: gran parte de este vocabulario llegó por necesidad, no por imposición. Cuando una lengua carece de una palabra para algo nuevo, sencillamente la toma prestada. Ese mecanismo &mdash;el préstamo&mdash; explica buena parte de lo que oirás en España.</p>`,
+     'Adaptado de materiales de ELE «España: crisol de culturas».')
+
+   + vcard('Memoria de España RTVE íberos celtas primeros pobladores documental completo','Memoria de España: los primeros pobladores','8','')
+
+   + `<div class="fijate"><p class="label">Fíjate en cómo suena culto</p>
+      <p class="hint">No memorices reglas: <b>lee en voz alta</b>, fíjate en el verbo y en el giro, y luego <b>imítalos</b>. En prensa nadie dice «llegaron»: dice «arribaron».</p>
+      ${swap([
+        ['llegaron a la costa','<b>arribaron</b> a la costa'],
+        ['buscaban metales','venían <b>a por</b> metales / <b>se buscaban</b> metales'],
+        ['no desapareció del todo','su rastro <b>no se borró</b> del todo'],
+        ['hay que recordar que…','<b>conviene</b> recordar que…'],
+        ['entraron en el español','se <b>incorporaron</b> al castellano']
+      ])}</div>`
+
+   + `<div class="contrast"><p class="label">Contraste IT ↔ ES</p>
+      <p><b>Cerveza</b> (celta) no es la <em>birra</em> italiana, y <b>perro</b> nada tiene que ver con <em>pero</em> (<em>ma</em>) ni con <em>cane</em>. Español e italiano comparten el latín, pero su <em>sustrato</em> prerromano es distinto: por eso te entienden casi todo… y a la vez te traicionan en lo cotidiano.</p></div>`,
+
+  exercises:[
+    {type:'match', num:'1.1',
+     q:'Empareja la forma <b>cotidiana</b> con su equivalente <b>culto</b>, el que verás en un periódico.',
+     pairs:[
+       {a:'llegar',b:'arribar'},
+       {a:'quedarse / seguir',b:'permanecer'},
+       {a:'hay que señalar',b:'cabe destacar'},
+       {a:'pero / sin embargo',b:'no obstante'},
+       {a:'casi el 75 %',b:'tres cuartas partes'}
+     ],
+     fb:'Son sinónimos de registro alto. Quédate con el verbo y el giro: <em>arribar</em>, <em>permanecer</em>, <em>cabe destacar</em>, <em>no obstante</em>. Repítelos en voz alta hasta que te salgan solos.'},
+
+    {type:'match', num:'1.2',
+     q:'Relaciona cada palabra del español de hoy con el pueblo del que procede.',
+     pairs:[
+       {a:'izquierda',b:'euskera (vasco)'},
+       {a:'cerveza',b:'celta'},
+       {a:'sapo',b:'íbero'},
+       {a:'mapa',b:'fenicio'},
+       {a:'Barcelona',b:'cartaginés'}
+     ],
+     fb:'Cada visitante del mapa dejó su huella en tu vocabulario diario.'},
+
+    {type:'prompt', num:'1.3',
+     q:'<b>Imita el tono de prensa.</b> Reescribe esta frase de conversación como un titular o entradilla de periódico.',
+     brief:'Frase coloquial: «Vinieron unos pueblos del mar buscando oro y al final nos dejaron un montón de palabras.»',
+     placeholder:'Diversos pueblos…',
+     model:'Diversos pueblos mediterráneos arribaron a la Península en busca de metales y legaron, sin pretenderlo, buena parte de su léxico cotidiano.',
+     checklist:[
+       'Cambia «vinieron» por <b>arribaron</b> y «buscando» por <b>en busca de</b>.',
+       '«unos pueblos» → <b>diversos pueblos / varios pueblos</b>.',
+       '«nos dejaron un montón de» → <b>legaron buena parte de</b>.',
+       'Evita el «nos» coloquial: la prensa narra en 3.ª persona.'
+     ]}
+  ]
+},
+
+/* ============================ ESTRATO II ============================ */
+{
+  id:'roma', short:'Roma',
+  html:
+  `<div class="estrato-head">
+     <span class="estrato-emblem">${embAcueducto()}</span>
+     <span class="estrato-num">II</span>
+     <div><p class="era">Siglo III a. C. – V d. C. · Hispania</p>
+     <h2>La aleación romana</h2></div>
+     <span class="mins">15 min</span></div>
+   <p class="intro">Roma no añadió un ingrediente más: refundió la masa entera. El español que oirás en Madrid es, en tres cuartas partes, latín reciclado &mdash; y los acueductos que verás siguen en pie veinte siglos después.</p>`
+   + periodico(
+     'LA GACETA DEL CRISOL','Edición histórica','N.º II',
+     'Doscientos años para forjar Hispania',
+     'Roma impone su lengua, su derecho y sus obras públicas. Lo que dejó sigue, literalmente, sosteniéndose en pie.',
+     'Crónica del Imperio',
+     `<figure class="np-figure">${figAcueducto()}<figcaption>El acueducto de Segovia · veinte siglos sin caerse</figcaption></figure>`,
+     `<p>La conquista romana se inició en el siglo III a. C. y no concluyó hasta el I a. C., tras un proceso largo y desigual. Los pueblos del sur asimilaron pronto el modo de vida romano; los del norte ofrecieron mayor resistencia.</p>
+      <p>Las consecuencias de aquella <span class="gl" data-d="Proceso de adopción de la cultura romana.">romanización</span> resultan visibles todavía hoy. El latín terminó por sustituir a las lenguas indígenas &mdash;salvo el euskera&mdash;, de modo que el castellano es una lengua <span class="gl" data-d="Derivada del latín, como el italiano.">romance</span>: cerca de tres cuartas partes de su vocabulario proceden de ahí. El Derecho romano se adoptó como base del Derecho europeo, que sigue vigente. Y se erigieron obras &mdash;acueductos, puentes, teatros&mdash; que aún se mantienen en pie: Segovia, Lugo, Mérida.</p>
+      <p>Lo decisivo no fue la suma de aportaciones, sino su fusión. España, en buena medida, sigue pensando en latín.</p>`,
+     'Adaptado de materiales de ELE «España: crisol de culturas».')
+
+   + vcard('Ingeniería romana acueducto de Segovia RTVE documental completo','Ingeniería romana: el acueducto de Segovia','9','')
+
+   + `<div class="fijate"><p class="label">Fíjate en el vocabulario que «sube de nivel»</p>
+      <p class="hint">Mismas ideas, palabras más cultas. El truco para sonar formal casi nunca es la gramática: es <b>elegir el verbo preciso</b>.</p>
+      ${swap([
+        ['aceptaron las costumbres','<b>asimilaron</b> las costumbres'],
+        ['se ven todavía hoy','<b>resultan visibles</b> todavía hoy'],
+        ['construyeron acueductos','<b>erigieron</b> acueductos'],
+        ['cambió las lenguas de allí','<b>sustituyó a</b> las lenguas indígenas'],
+        ['siguen ahí','aún <b>se mantienen en pie</b> / <b>perduran</b>']
+      ])}</div>`,
+
+  exercises:[
+    {type:'match', num:'2.1',
+     q:'Empareja el verbo <b>común</b> con su sinónimo <b>culto</b>.',
+     pairs:[
+       {a:'aceptar / adoptar',b:'asimilar'},
+       {a:'construir',b:'erigir'},
+       {a:'cambiar por otra cosa',b:'sustituir'},
+       {a:'durar / seguir',b:'perdurar'},
+       {a:'extenderse',b:'propagarse'}
+     ],
+     fb:'Cinco verbos que elevan el tono al instante. Pruébalos en una frase tuya sobre Roma.'},
+
+    {type:'mcq', num:'2.2',
+     q:'¿Cuál de estas frases <b>suena a artículo o informe</b> (y no a conversación)?',
+     options:[
+       'Cuando Roma conquistó Hispania, cambió todo de golpe.',
+       'La conquista de Hispania supuso una transformación profunda y duradera.',
+       'Roma conquistó Hispania y, claro, las cosas cambiaron un montón.',
+       'Los romanos llegaron y pusieron todo patas arriba.'
+     ],
+     answer:1,
+     fb:'La 2.ª suena a prensa: usa <em>supuso</em>, <em>transformación</em>, <em>duradera</em> y evita lo coloquial («de golpe», «claro», «un montón»). Fíjate en cómo el sustantivo <em>la conquista</em> condensa la acción: imítalo cuando quieras un tono culto.'}
+  ]
+},
+
+/* ============================ ESTRATO III ============================ */
+{
+  id:'andalus', short:'Al-Ándalus',
+  html:
+  `<div class="estrato-head">
+     <span class="estrato-emblem">${embArco()}</span>
+     <span class="estrato-num">III</span>
+     <div><p class="era">711 – 1492 · Al-Ándalus</p>
+     <h2>Ocho siglos de oro</h2></div>
+     <span class="mins">20 min</span></div>
+   <p class="intro">Casi ochocientos años para fundirse con la Península. El resultado está en tu plato, en tu mapa y en una de cada diez palabras que empiezan por «al-».</p>`
+   + periodico(
+     'LA GACETA DEL CRISOL','Edición histórica','N.º III',
+     'Al-Ándalus, la cumbre del crisol',
+     'Córdoba irradia ciencia y arte mientras el árabe presta al castellano centenares de palabras que aún usamos.',
+     'Crónica de Al-Ándalus',
+     `<figure class="np-figure">${figAlhambra()}<figcaption>El arco de herradura · la Alhambra parece brotar del monte</figcaption></figure>`,
+     `<p>Los árabes conquistaron la Península en 711 y permanecieron en ella hasta 1492: ocho siglos durante los cuales la llamaron <em>Al-Ándalus</em>. Aunque suele recordarse como un periodo de conflicto, lo cierto es que en él se alcanzaron cotas de refinamiento que Europa tardaría siglos en igualar. Desde Córdoba se irradiaron avances en medicina, agricultura, matemáticas y arquitectura.</p>
+      <p>Por más que el visitante asocie esa herencia a dos monumentos, conviene no reducirla a ellos. La <span class="gl" data-d="«La Fortaleza Roja»: palacios y jardines nazaríes en Granada.">Alhambra</span> integra palacios, fortaleza y jardines de tal modo que el edificio parece brotar del paisaje. La <span class="gl" data-d="Basílica visigoda, luego mezquita, hoy catedral.">Mezquita de Córdoba</span>, con su bosque de columnas, es la segunda mayor del mundo.</p>
+      <p>La huella más persistente, sin embargo, es lingüística: términos jurídicos (<em>alcalde</em>), comerciales (<em>almacén</em>), agrícolas (<em>aceituna</em>) y centenares de topónimos (<em>Guadalquivir</em>, <em>Gibraltar</em>).</p>`,
+     'Adaptado de materiales de ELE «España: crisol de culturas».')
+
+   + vcard('La Alhambra de Granada documental RTVE arte nazarí Al-Ándalus','La Alhambra de Granada (documental)','8','')
+
+   + `<div class="fijate"><p class="label">Fíjate en los giros para «matizar»</p>
+      <p class="hint">El español culto rara vez afirma a lo bruto: <b>concede</b> y <b>matiza</b>. Estos arranques de frase te hacen sonar mesurado y elegante &mdash; cópialos enteros.</p>
+      ${swap([
+        ['aunque parezca raro…','<b>por más que</b> parezca…'],
+        ['la verdad es que…','<b>lo cierto es que</b>…'],
+        ['no hay que reducirlo a eso','<b>conviene no reducirlo a</b> ello'],
+        ['salieron desde Córdoba','desde Córdoba se <b>irradiaron</b>'],
+        ['llegaron a un nivel altísimo','<b>alcanzaron cotas de</b> refinamiento']
+      ])}</div>`
+
+   + `<div class="contrast"><p class="label">Contraste IT ↔ ES</p>
+      <p>El árabe es la gran diferencia entre el léxico español y el italiano. Cuando dudes ante una palabra española que empieza por <b>al-</b>, sospecha de Al-Ándalus: casi siempre acertarás (<em>almohada, alcalde, alfombra, alquiler</em>).</p></div>`,
+
+  exercises:[
+    {type:'match', num:'3.1',
+     q:'Empareja el giro <b>coloquial</b> con el giro <b>culto</b> para matizar.',
+     pairs:[
+       {a:'la verdad es que…',b:'lo cierto es que…'},
+       {a:'aunque parezca mentira…',b:'por más que sorprenda…'},
+       {a:'salir / extenderse desde',b:'irradiarse desde'},
+       {a:'llegar a un nivel muy alto',b:'alcanzar cotas de…'},
+       {a:'no hay que limitarlo a eso',b:'conviene no reducirlo a ello'}
+     ],
+     fb:'Son fórmulas «de apertura» que puedes pegar al principio de cualquier opinión para sonar culto. Apréndelas como bloques, no por piezas.'},
+
+    {type:'match', num:'3.2',
+     q:'Relaciona cada arabismo con su campo de uso.',
+     pairs:[
+       {a:'alcalde',b:'término jurídico'},
+       {a:'almacén',b:'término comercial'},
+       {a:'aceituna',b:'término agrícola'},
+       {a:'Guadalquivir',b:'topónimo'},
+       {a:'almohada',b:'objeto cotidiano'}
+     ],
+     fb:'El prefijo «al-» delata el origen árabe en casi todos.'},
+
+    {type:'mcq', num:'3.3',
+     q:'En un debate formal quieres <b>reconocer un punto antes de rebatirlo</b>. ¿Qué frase suena más culta?',
+     options:[
+       'La Mezquita es enorme, pero bueno, da igual.',
+       'Por más que la Mezquita impresione por su tamaño, su valor reside, ante todo, en lo que simboliza.',
+       'Vale, la Mezquita es grande, ¿y qué?',
+       'La Mezquita grande, sí, pero la gente igual va.'
+     ],
+     answer:1,
+     fb:'«Por más que… , su valor reside ante todo en…» concede y reorienta con elegancia. Quédate con el molde: <em>Por más que [algo], lo cierto es que / su valor reside en…</em>'}
+  ]
+},
+
+/* ============================ ESTRATO IV ============================ */
+{
+  id:'tresculturas', short:'Tres culturas',
+  html:
+  `<div class="estrato-head">
+     <span class="estrato-emblem">${embLibro()}</span>
+     <span class="estrato-num">IV</span>
+     <div><p class="era">Edad Media · Toledo · Sefarad</p>
+     <h2>La convivencia</h2></div>
+     <span class="mins">20 min</span></div>
+   <p class="intro">Hubo un tiempo y un lugar &mdash;Toledo&mdash; en que judíos, musulmanes y cristianos trabajaron codo con codo. De aquella mezcla salió buena parte del saber que después leería Europa.</p>`
+   + periodico(
+     'LA GACETA DEL CRISOL','Edición histórica','N.º IV',
+     'Toledo y la Escuela de Traductores',
+     'Cuatro lenguas en una misma sala: el conocimiento del mundo se vierte al latín en la ciudad de las tres culturas.',
+     'Crónica medieval',
+     `<figure class="np-figure">${figToledo()}<figcaption>Tres culturas, una mesa de trabajo · latín, griego, árabe y hebreo</figcaption></figure>`,
+     `<p>Los <span class="gl" data-d="Judíos de origen español; Sefarad es el nombre hebreo de la Península.">sefardíes</span> son los judíos de origen español. En ciudades como Toledo o Alcalá de Henares convivieron durante siglos con musulmanes y cristianos en barrios contiguos pero diferenciados: la <span class="gl" data-d="Barrio judío.">judería</span>, la <span class="gl" data-d="Barrio musulmán.">morería</span> y el barrio cristiano.</p>
+      <p>En el siglo XI, gracias a la tolerancia de los reyes cristianos, se fundó la Escuela de Traductores de Toledo. Allí, árabes, judíos y cristianos trabajaban codo con codo para verter al latín las grandes obras de ciencia y filosofía, partiendo del árabe, el griego y el hebreo. El conocimiento allí reunido no tenía parangón en la cristiandad.</p>
+      <p>A pocos kilómetros, Alcalá de Henares &mdash;cuna de Cervantes&mdash; se convirtió en modelo de esa convivencia. Conviene recordar, eso sí, que aquella armonía fue frágil y acabó rompiéndose en 1492: ningún relato honesto debería omitirlo.</p>`,
+     'Adaptado de materiales de ELE «España: crisol de culturas».')
+
+   + vcard('Escuela de Traductores de Toledo tres culturas documental RTVE','Toledo y la Escuela de Traductores','7','')
+
+   + `<div class="fijate"><p class="label">Fíjate en el léxico de la convivencia y el saber</p>
+      <p class="hint">Palabras precisas que dan empaque a cualquier texto sobre cultura. Subráyalas en el artículo y úsalas tú después.</p>
+      ${swap([
+        ['vivir juntos','<b>convivir</b>'],
+        ['muy juntos / al lado','<b>codo con codo</b> / <b>contiguos</b>'],
+        ['traducir al latín','<b>verter</b> al latín'],
+        ['no tenía igual','<b>no tenía parangón</b>'],
+        ['no se debería dejar fuera','no debería <b>omitirse</b>']
+      ])}</div>`,
+
+  exercises:[
+    {type:'match', num:'4.1',
+     q:'Empareja la expresión <b>cotidiana</b> con la <b>culta</b>.',
+     pairs:[
+       {a:'vivir juntos en paz',b:'convivir en armonía'},
+       {a:'uno al lado del otro',b:'codo con codo / contiguos'},
+       {a:'traducir',b:'verter (a una lengua)'},
+       {a:'no tenía igual',b:'no tenía parangón'},
+       {a:'dejar algo fuera',b:'omitir algo'}
+     ],
+     fb:'Léxico de alto rendimiento para hablar de historia y cultura. Repite cada par en voz alta.'},
+
+    {type:'prompt', num:'4.2',
+     q:'<b>Imita la voz del cronista.</b> Cuenta esta escena como lo haría el artículo: con tono formal y en 3.ª persona.',
+     brief:'Idea en bruto: «En Toledo se juntaban cristianos, judíos y árabes a traducir libros, y nadie tenía tanto saber junto como ellos.»',
+     placeholder:'En Toledo convivían…',
+     model:'En Toledo, cristianos, judíos y musulmanes trabajaban codo con codo para verter al latín las grandes obras del saber; el conocimiento allí reunido no tenía parangón en toda la cristiandad.',
+     checklist:[
+       '«se juntaban» → <b>convivían / trabajaban codo con codo</b>.',
+       '«traducir libros» → <b>verter al latín las grandes obras</b>.',
+       '«nadie tenía tanto saber» → <b>no tenía parangón</b>.',
+       'Sustituye «árabes» por <b>musulmanes</b> y mantén la 3.ª persona.'
+     ]}
+  ]
+},
+
+/* ============================ ESTRATO V ============================ */
+{
+  id:'nuevomundo', short:'Nuevo Mundo',
+  html:
+  `<div class="estrato-head">
+     <span class="estrato-emblem">${embBarco()}</span>
+     <span class="estrato-num">V</span>
+     <div><p class="era">1492 → · El intercambio atlántico</p>
+     <h2>El crisol cruza el océano</h2></div>
+     <span class="mins">20 min</span></div>
+   <p class="intro">En 1492 el horno dejó de ser peninsular. Lo que entró por Sevilla &mdash;la patata, el cacao, el tomate y un torrente de palabras&mdash; transformó la dieta y el idioma, y convirtió tu español en el segundo más hablado del planeta.</p>`
+   + periodico(
+     'LA GACETA DEL CRISOL','Edición histórica','N.º V',
+     'El idioma que conquistó dos mundos',
+     'Del náhuatl y el quechua llegan palabras sin las cuales hoy no sabríamos comer ni hablar.',
+     'Crónica del Atlántico',
+     `<figure class="np-figure">${figCaravela()}<figcaption>El intercambio: lo que cruzó el océano en las dos direcciones</figcaption></figure>`,
+     `<p>En 1492, los Reyes Católicos enviaron a Cristóbal Colón en busca de una ruta hacia Asia. La llegada al continente americano abrió una edad dorada cuyo motor fue el oro y la plata.</p>
+      <p>El intercambio, sin embargo, fue mucho más rico que el simple saqueo con que a veces se resume. A España llegaron productos cuyo arraigo es hoy absoluto: la patata, el maíz, el cacao, el tomate. Y con ellos viajaron las palabras que los nombraban. Del náhuatl proceden <em>chocolate</em> y <em>aguacate</em>; del quechua, <em>cóndor</em> y <em>pampa</em>; del caribe, <em>canoa</em> y <em>huracán</em>, voces sin las cuales el español resultaría hoy impensable.</p>
+      <p>También la música confluyó: el son cubano, en el que se funden lo africano, lo español y lo indígena, está en la raíz de la salsa. Gracias a América, el idioma que aprendes para Madrid lo hablan hoy casi 500 millones de personas.</p>`,
+     'Adaptado de materiales de ELE «España: crisol de culturas».')
+
+   + vcard('intercambio colombino 1492 productos América idioma español documental','1492: el intercambio entre dos mundos','8','')
+
+   + `<div class="fijate"><p class="label">Fíjate en los conectores y el vocabulario de «consecuencia»</p>
+      <p class="hint">Para encadenar ideas como un buen artículo, basta con un puñado de piezas. Nótalas y reutilízalas.</p>
+      ${swap([
+        ['las raíces que tiene aquí','su <b>arraigo</b>'],
+        ['juntarse / mezclarse','<b>confluir</b> / fundirse'],
+        ['imposible de imaginar','<b>impensable</b>'],
+        ['como consecuencia / de rebote','a <b>raíz de</b> ello / por <b>consiguiente</b>'],
+        ['un montón de palabras','un <b>torrente</b> de palabras']
+      ])}</div>`,
+
+  exercises:[
+    {type:'match', num:'5.1',
+     q:'Empareja lo <b>cotidiano</b> con lo <b>culto</b>.',
+     pairs:[
+       {a:'las raíces que algo echa',b:'el arraigo'},
+       {a:'juntarse / mezclarse',b:'confluir'},
+       {a:'imposible de imaginar',b:'impensable'},
+       {a:'un montón de',b:'un torrente de'},
+       {a:'como consecuencia',b:'por consiguiente'}
+     ],
+     fb:'Cinco recambios cultos listos para usar. El más rentable: <em>por consiguiente</em> para introducir conclusiones.'},
+
+    {type:'match', num:'5.2',
+     q:'Relaciona cada palabra con la lengua americana de la que procede.',
+     pairs:[
+       {a:'chocolate',b:'náhuatl (azteca)'},
+       {a:'cóndor',b:'quechua (Andes)'},
+       {a:'huracán',b:'caribe / arahuaco'},
+       {a:'pampa',b:'quechua (Andes)'},
+       {a:'aguacate',b:'náhuatl (azteca)'}
+     ],
+     fb:'La capa americana del español: náhuatl, quechua y lenguas del Caribe.'},
+
+    {type:'prompt', num:'5.3',
+     q:'<b>Imita el tono de prensa.</b> Convierte esta idea cotidiana en una frase de artículo.',
+     brief:'Idea: «Vinieron muchas comidas nuevas de América y eso cambió un montón cómo come la gente en España.»',
+     placeholder:'La llegada de nuevos productos…',
+     model:'La llegada de productos americanos &mdash;la patata, el tomate, el cacao&mdash; transformó la dieta peninsular y, por consiguiente, los hábitos de toda una sociedad.',
+     checklist:[
+       '«vinieron muchas comidas» → <b>la llegada de productos americanos</b>.',
+       '«cambió un montón» → <b>transformó</b>.',
+       'Encadena la consecuencia con <b>por consiguiente</b> / <b>a raíz de ello</b>.',
+       'Sustituye «la gente» por <b>la sociedad / la población</b>.'
+     ]}
+  ]
+},
+
+/* ============================ ESTRATO VI ============================ */
+{
+  id:'madrid', short:'Madrid hoy',
+  html:
+  `<div class="estrato-head">
+     <span class="estrato-emblem">${embOso()}</span>
+     <span class="estrato-num">VI</span>
+     <div><p class="era">Hoy · Tu vida en Madrid</p>
+     <h2>Del crisol a tu calle</h2></div>
+     <span class="mins">25 min</span></div>
+   <p class="intro">Todo lo anterior desemboca aquí: la calle por la que caminarás mañana. El estrato más práctico &mdash; costumbres que evitan malentendidos y el tono formal que necesitarás ante un funcionario o un casero.</p>`
+   + periodico(
+     'LA GACETA DEL CRISOL','Edición de hoy','N.º VI',
+     'Aterrizar en Madrid: lengua y costumbres',
+     'Horarios que se desplazan, un «usted» que abre puertas y un puñado de palabras que conviene no confundir con el italiano.',
+     'Guía para recién llegados',
+     `<figure class="np-figure">${figMadrid()}<figcaption>La Puerta de Alcalá y el oso y el madroño · símbolos de Madrid</figcaption></figure>`,
+     `<p>En lo cotidiano, conviene asimilar algunos códigos cuanto antes. Los horarios se desplazan: se almuerza hacia las 14:30 y se cena a partir de las 21:00, de modo que no te extrañe encontrar un restaurante vacío a las 19:00. Tras la comida llega la <span class="gl" data-d="Charla en la mesa una vez terminado de comer.">sobremesa</span>, casi un ritual. Para verse con alguien se usa el verbo <b>quedar</b> («¿quedamos el jueves?»). Y antes de cualquier trámite tendrás que <span class="gl" data-d="Inscribirte en el registro de tu ayuntamiento.">empadronarte</span>.</p>
+      <p>En lo administrativo, el tono cambia de golpe. Con amigos tutearás sin problema; ante un funcionario, un médico o tu casero, lo prudente es el <b>usted</b> y las fórmulas indirectas: «¿Sería tan amable de…?», «¿Le importaría…?», «Le agradecería que…». Dominar ese salto entre el tú y el usted es, para un recién llegado, tan importante como el vocabulario.</p>`,
+     'Síntesis original para estudiantes que se trasladan a Madrid.')
+
+   + vcard('vivir en Madrid costumbres horarios españoles guía para extranjeros','Vivir en Madrid: costumbres y horarios','9','')
+
+   + `<div class="fijate"><p class="label">Fíjate en el salto tú → usted (pedir las cosas)</p>
+      <p class="hint">No es gramática: es <b>cortesía</b>. Ante un trámite, sustituye la petición directa por una fórmula indirecta. Apréndelas como frases hechas y suéltalas tal cual.</p>
+      ${swap([
+        ['¿me lo confirmas?','¿<b>sería tan amable de</b> confirmármelo?'],
+        ['mándame un técnico','le <b>agradecería que</b> enviara un técnico'],
+        ['necesito esto ya','¿<b>le importaría</b> tramitarlo cuanto antes?'],
+        ['dime qué papeles hacen falta','¿<b>podría indicarme</b> qué documentación necesito?'],
+        ['gracias, adiós','quedo a la espera; <b>reciba un cordial saludo</b>']
+      ])}</div>`
+
+   + `<div class="contrast"><p class="label">Falsos amigos IT ↔ ES · trampas diarias</p>
+      <table style="width:100%;border-collapse:collapse;font-size:.92rem">
+      <tr><td style="color:var(--ceniza-2);padding:6px 8px;border-bottom:1px solid var(--line)">burro (ES = asno)</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)">&ne; <b>burro</b> it. (mantequilla)</td></tr>
+      <tr><td style="color:var(--ceniza-2);padding:6px 8px;border-bottom:1px solid var(--line)">salir (ES = uscire)</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)">&ne; <b>salire</b> (subir)</td></tr>
+      <tr><td style="color:var(--ceniza-2);padding:6px 8px;border-bottom:1px solid var(--line)">largo (ES = lungo)</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)">&ne; <b>largo</b> it. (ancho)</td></tr>
+      <tr><td style="color:var(--ceniza-2);padding:6px 8px;border-bottom:1px solid var(--line)">gamba (ES = marisco)</td><td style="padding:6px 8px;border-bottom:1px solid var(--line)">&ne; <b>gamba</b> it. (pierna)</td></tr>
+      <tr><td style="color:var(--ceniza-2);padding:6px 8px">aceite (ES = olio)</td><td style="padding:6px 8px">&ne; <b>aceto</b> (vinagre)</td></tr>
+      </table></div>`,
+
+  exercises:[
+    {type:'match', num:'6.1',
+     q:'Relaciona cada palabra española con su significado real (cuidado con el falso amigo italiano).',
+     pairs:[
+       {a:'burro',b:'asno (no «mantequilla»)'},
+       {a:'salir',b:'uscire (no «subir»)'},
+       {a:'largo',b:'lungo (no «ancho»)'},
+       {a:'gamba',b:'marisco (no «pierna»)'},
+       {a:'quedar',b:'verse / citarse'}
+     ],
+     fb:'Los cinco que descarrilan a casi todos los italohablantes en sus primeras semanas.'},
+
+    {type:'match', num:'6.2',
+     q:'Empareja la petición <b>directa</b> (con amigos) con su versión <b>formal</b> (ante un funcionario o casero).',
+     pairs:[
+       {a:'¿me lo confirmas?',b:'¿sería tan amable de confirmármelo?'},
+       {a:'mándame un técnico',b:'le agradecería que enviara un técnico'},
+       {a:'dime qué papeles hacen falta',b:'¿podría indicarme qué documentación necesito?'},
+       {a:'hazlo cuanto antes',b:'¿le importaría tramitarlo a la mayor brevedad?'},
+       {a:'gracias, adiós',b:'quedo a la espera; reciba un cordial saludo'}
+     ],
+     fb:'Quédate con estos cinco bloques de cortesía: son la llave del español administrativo. No los analices, úsalos.'},
+
+    {type:'mcq', num:'6.3',
+     q:'Vas a empadronarte. ¿Qué frase es la <b>apropiada</b> ante el funcionario?',
+     options:[
+       '¿Me dices qué papeles necesito para empadronarme?',
+       'Oye, ¿esto del padrón cómo va?',
+       '¿Sería tan amable de indicarme qué documentación necesito para empadronarme?',
+       'Quiero el padrón ya.'
+     ],
+     answer:2,
+     fb:'Ante un funcionario, el tono pide <b>usted</b> y cortesía indirecta. El tuteo de la 1.ª sonaría brusco; la 3.ª es la versión que abre puertas.'},
+
+    {type:'prompt', num:'6.4',
+     q:'<b>Producción escrita.</b> Redacta un correo formal (80-110 palabras) a tu casero en Madrid para pedir que repare la caldera con urgencia.',
+     brief:'Imita el tono del recuadro «Fíjate»: trato de usted, dos fórmulas de cortesía indirecta, saludo y despedida formales. No pienses en reglas; encadena las frases hechas que acabas de aprender.',
+     placeholder:'Estimado/a Sr./Sra. …:',
+     model:'Estimada Sra. Gómez: Me dirijo a usted porque la caldera de la vivienda ha dejado de funcionar y nos hemos quedado sin agua caliente. Le agradecería que enviara a un técnico a la mayor brevedad posible. Si no le fuera posible esta semana, ¿le importaría comunicármelo para buscar una solución provisional? Quedo a la espera de su respuesta. Reciba un cordial saludo, [Nombre].',
+     checklist:[
+       'Abre con «Estimada Sra. …» y cierra con «Reciba un cordial saludo».',
+       'Mantén el <b>usted</b> de principio a fin.',
+       'Usa al menos dos bloques de cortesía: «Le agradecería que…», «¿Le importaría…?».',
+       'Sé concreto con el problema (caldera, agua caliente) y con lo que pides (un técnico, una fecha).'
+     ]},
+
+    {type:'prompt', num:'6.5',
+     q:'<b>Síntesis y debate (oral o escrito).</b> Vuelve al título: «España, crisol de culturas». ¿Enriqueció esa mezcla al país, o el término idealiza una historia con muchos conflictos? Defiende tu postura en 6-8 frases.',
+     brief:'Reto: usa al menos dos giros de los recuadros «Fíjate» de toda la lección (por más que…, lo cierto es que…, no obstante, por consiguiente, cabe destacar…). Imita el tono de los artículos.',
+     placeholder:'A mi juicio, el término «crisol»…',
+     model:'A mi juicio, el término «crisol» resulta atractivo, pero conviene matizarlo. Lo cierto es que la lengua, la gastronomía y la arquitectura se enriquecieron con cada aportación. No obstante, no debería omitirse que esa fusión convivió con expulsiones y conflictos. Por más que se idealice la convivencia, fue frágil. Aun así, cabe destacar que el balance final fue profundamente fecundo: pocos países pueden presumir de una herencia tan diversa.',
+     checklist:[
+       'Arranca con un giro de matiz: «a mi juicio», «lo cierto es que».',
+       'Concede con «por más que… / no obstante…».',
+       'Introduce tu conclusión con «cabe destacar que…» o «por consiguiente».',
+       'Tesis clara → matiz → conclusión. Imita la voz de los artículos, no la conversación.'
+     ]}
+  ]
+}
+
+);
+
+</script>
+<script>buildLesson();</script>
+</body>
+</html>
